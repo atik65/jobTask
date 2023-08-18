@@ -17,13 +17,20 @@ body {
 
 .banner {
   padding: 0 1rem;
-  height: 65vh;
+  height: 100vh;
   background-color: #27272772;
   background-image: url("../../public//images/starfield.png");
   background-blend-mode: darken;
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 91%);
+
+  @media (min-width: $breakpoint-small) {
+    height: 75vh;
+  }
+  @media (min-width: $breakpoint-medium) {
+    height: 58vh;
+  }
 
   .mobileNav {
     display: flex;
@@ -284,6 +291,116 @@ body {
           width: 60px;
         }
       }
+
+      .large-menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-radius: 5px;
+        background: linear-gradient(to bottom right, #4c4c4dba, #91744c41);
+        backdrop-filter: blur(10px);
+        top: 70px;
+        padding: 1rem;
+
+        .large-menu-top-list-header,
+        .large-menu-bottom-list-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.472);
+          padding: 0.4rem 1rem;
+          margin-bottom: 0.7rem;
+          border-radius: 5px;
+
+          button {
+            background-color: inherit;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+          }
+        }
+
+        .large-menu-top-list {
+          padding: 0 1rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 0.5rem;
+          grid-row-gap: 0.7rem;
+          @media (min-width: $breakpoint-small) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 1rem;
+            grid-row-gap: 0.3rem;
+          }
+
+          .single-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 10px;
+            align-items: center;
+            cursor: pointer;
+
+            padding: 5px 5px;
+            border-radius: 50px;
+            transition: all 0.2s;
+
+            img {
+              width: 35px;
+            }
+            p {
+              font-weight: bold;
+              font-size: 0.9rem;
+            }
+
+            div:nth-child(1) {
+              display: flex;
+            }
+
+            &:hover {
+              background-color: rgba(128, 128, 128, 0.586);
+            }
+          }
+        }
+
+        .large-menu-bottom-list-header {
+          margin-top: 0.7rem;
+        }
+
+        .large-menu-bottom-list {
+          padding: 0 1rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 0.5rem;
+          grid-row-gap: 0.7rem;
+
+          @media (min-width: $breakpoint-small) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 1rem;
+          }
+
+          img {
+            width: 70px;
+          }
+          p {
+            font-weight: bold;
+            font-size: 0.9rem;
+          }
+
+          .single-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 5px 5px;
+            border-radius: 5px;
+            transition: all 0.2s;
+            &:hover {
+              background-color: rgba(128, 128, 128, 0.586);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -322,6 +439,108 @@ body {
 
     @media (min-width: $breakpoint-medium) {
       display: flex;
+    }
+  }
+}
+
+.home-cards {
+  width: 95%;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-small) {
+    width: 80%;
+  }
+
+  .home-cards-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    h3 {
+      color: white;
+      font-size: 1.5rem;
+
+      @media (min-width: $breakpoint-small) {
+        font-size: 2rem;
+      }
+    }
+
+    button {
+      padding: 0.5rem 0.75rem;
+      background-color: inherit;
+      color: white;
+      border: 1px solid gray;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .home-cards-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: $breakpoint-xLarge) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .single-card {
+      .game-card-top {
+        position: relative;
+        width: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+          height: 230px;
+          object-fit: cover;
+        }
+        button {
+          border: none;
+          background-color: #ff5400;
+          color: white;
+          padding: 0.3rem 0.7rem 0.3rem 0.5rem;
+          clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+          border-radius: 5px;
+          position: absolute;
+          bottom: 3px;
+          left: 0;
+          font-family: "Quantico";
+        }
+      }
+
+      .game-card-bottom {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        font-family: "Quantico";
+
+        h4 {
+          font-weight: bold;
+          font-size: 1.3rem;
+          display: flex;
+          align-items: center;
+
+          button {
+            color: white;
+            background-color: inherit;
+            border: 2px solid gray;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-family: "Quantico";
+            margin-right: 5px;
+          }
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+      }
     }
   }
 }
