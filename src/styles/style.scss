@@ -503,13 +503,27 @@ body {
           border: none;
           background-color: #ff5400;
           color: white;
-          padding: 0.3rem 0.7rem 0.3rem 0.5rem;
-          clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
-          border-radius: 5px;
+          padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+          // clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+          border-radius: 5px 0 0 5px;
           position: absolute;
           bottom: 3px;
           left: 0;
           font-family: "Quantico";
+          z-index: 2 !important;
+          // position: relative;
+          &::after {
+            content: "";
+            width: 10px;
+            height: 99%;
+            background-color: #ff5400;
+            position: absolute;
+            bottom: 0;
+            right: -5px;
+            z-index: 1;
+            transform: skewX(15deg);
+            border-radius: 0 3px 5px 0;
+          }
         }
       }
 
