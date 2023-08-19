@@ -17,7 +17,7 @@ body {
 
 .banner {
   padding: 0 1rem;
-  height: 100vh;
+  height: 90vh;
   background-color: #27272772;
   background-image: url("../../public//images/starfield.png");
   background-blend-mode: darken;
@@ -153,14 +153,14 @@ body {
       > .input {
         width: 0;
         opacity: 0;
-        display: none;
+        // display: none;
+
         position: absolute;
         left: 0;
         right: 0;
 
         input {
           position: absolute;
-
           background: linear-gradient(to right, #fe630e, #fe4c19);
           z-index: 2;
           left: 0;
@@ -223,6 +223,7 @@ body {
           cursor: pointer;
           height: 60px;
           width: 60px;
+          // display: none;
 
           @media (min-width: $breakpoint-small) {
             z-index: 3;
@@ -301,6 +302,8 @@ body {
         backdrop-filter: blur(10px);
         top: 70px;
         padding: 1rem;
+        z-index: 3;
+        display: none;
 
         .large-menu-top-list-header,
         .large-menu-bottom-list-header {
@@ -439,6 +442,145 @@ body {
 
     @media (min-width: $breakpoint-medium) {
       display: flex;
+    }
+  }
+
+  .banner-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+    font-family: "Quantico";
+
+    @media (min-width: $breakpoint-small) {
+      width: 80%;
+    }
+    @media (min-width: $breakpoint-large) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 80%;
+    }
+
+    .banner-body-left-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      height: 70%;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: $breakpoint-medium) {
+        height: 70%;
+      }
+
+      @media (min-width: $breakpoint-large) {
+        padding-top: 80px;
+        align-items: flex-start;
+        height: fit-content;
+        justify-content: flex-start;
+      }
+
+      .banner-body-left-1 {
+        button {
+          font-family: "Quantico";
+          border: none;
+          background-color: rgba(128, 128, 128, 0.417);
+          color: white;
+          padding: 4px 7px;
+          border-radius: 5px;
+        }
+      }
+
+      .banner-body-left-2 {
+        h3 {
+          color: white;
+          font-size: 1.7rem;
+          text-align: center;
+          @media (min-width: $breakpoint-small) {
+            font-size: 2rem;
+            text-align: left;
+          }
+        }
+      }
+      .banner-body-left-3 {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+
+        button {
+          border: none;
+          background-color: #ff5400;
+          color: white;
+          padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+          border-radius: 5px 0 0 5px;
+          font-family: "Quantico";
+          z-index: 2 !important;
+          position: relative;
+          &::after {
+            content: "";
+            width: 10px;
+            height: 99%;
+            background-color: #ff5400;
+            position: absolute;
+            bottom: 0;
+            right: -5px;
+            z-index: 1;
+            transform: skewX(15deg);
+            border-radius: 0 3px 5px 0;
+          }
+        }
+
+        h2 {
+          color: white;
+          font-family: "lato";
+        }
+      }
+    }
+
+    .banner-body-right-container {
+      height: 100%;
+
+      .banner-body-right-1 {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 100px;
+
+        @media (min-width: $breakpoint-small) {
+          align-items: flex-start;
+          padding-top: 50px;
+        }
+        @media (min-width: $breakpoint-large) {
+          align-items: center;
+        }
+        @media (min-width: $breakpoint-xLarge) {
+          justify-content: flex-start;
+        }
+
+        button {
+          font-family: "Quantico";
+          border: none;
+          background-color: #242423b9;
+          display: flex;
+          align-items: center;
+          color: white;
+          padding: 5px 20px;
+          font-size: 2rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          span {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+          }
+
+          &:hover {
+            background-color: #2424238f;
+          }
+        }
+      }
     }
   }
 }
