@@ -4,8 +4,26 @@ import eaLogo from "../../public/images/eaLogo.png";
 import sengoku from "../../public/images/Sengoku.jpg";
 import theSims from "../../public/images/theSims.jpg";
 import remnant from "../../public/images/remnant.jpg";
+import ubisoft from "../../public/images/links/ubisoft.jpg";
+import battle from "../../public/images/links/battle.png";
+import rockstar from "../../public/images/links/rockstar.png";
+import streamLarge from "../../public/images/links/streamLarge.png";
+import igLarge from "../../public/images/links/igLarge.png";
+import bilzardLarge from "../../public/images/links/bilzardLarge.png";
 
 const gameCardsImages = [sengoku, theSims, remnant];
+const linksLogo = [
+  eaLogo,
+  ubisoft,
+  eaLogo,
+  battle,
+  rockstar,
+  battle,
+  eaLogo,
+  ubisoft,
+];
+
+const largeLinks = [streamLarge, igLarge, bilzardLarge];
 
 document.getElementById("title-logo").setAttribute("href", logo);
 document.querySelector(".logo").setAttribute("src", logo);
@@ -13,12 +31,12 @@ document.querySelector(".logo").setAttribute("src", logo);
 for (let i = 1; i <= 8; i++) {
   document
     .querySelector(`#large-menu-top-list-logo${i}`)
-    .setAttribute("src", eaLogo);
+    .setAttribute("src", linksLogo[i - 1]);
 }
 for (let i = 1; i <= 3; i++) {
   document
     .querySelector(`#large-menu-bottom-list-logo${i}`)
-    .setAttribute("src", logo);
+    .setAttribute("src", largeLinks[i - 1]);
 }
 for (let i = 1; i <= 3; i++) {
   document
