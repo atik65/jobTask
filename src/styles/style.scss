@@ -667,7 +667,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1.5rem;
-
+    cursor: pointer;
     @media (min-width: $breakpoint-medium) {
       grid-template-columns: 1fr 1fr;
     }
